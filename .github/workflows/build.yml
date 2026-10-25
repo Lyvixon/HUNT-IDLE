@@ -20,7 +20,10 @@ jobs:
           gradle-version: '8.9'
 
       - name: Descompactar projeto
-        run: unzip -q "HunteraMulti (1).zip"
+        run: unzip -oq "HunteraMulti (1).zip"
+
+      - name: Corrigir tema
+        run: sed -i 's/Theme.Material3.Dark.NoActionBar/Theme.AppCompat.DayNight.NoActionBar/' HunteraMulti/app/src/main/res/values/themes.xml
 
       - name: Compilar APK
         working-directory: HunteraMulti
